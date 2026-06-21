@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 
 import Hero from "@/components/sections/Hero";
 import AboutGroup from "@/components/sections/AboutGroup";
-
+import Divisions from "@/components/sections/Divisions";
 export default function Home() {
   return (
     <>
@@ -12,6 +12,7 @@ export default function Home() {
       <main>
         <Hero />
         <AboutGroup />
+        <Divisions />
       </main>
 
       <Footer />
