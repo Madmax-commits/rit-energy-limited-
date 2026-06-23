@@ -36,7 +36,7 @@ export default function Divisions() {
           {divisions.map((division) => (
             <DivisionCard
               key={division.name}
-              icon={division.icon}
+              id={division.id}
               name={division.name}
               category={division.category}
               description={division.description}
