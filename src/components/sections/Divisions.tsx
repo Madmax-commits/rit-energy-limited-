@@ -1,6 +1,9 @@
+import { divisionIcons } from "@/icons/divisionIcons";
 import Container from "../layout/Container";
 import DivisionCard from "../ui/DivisionCard";
 import { divisions } from "@/data/divisions";
+
+
 
 export default function Divisions() {
   return (

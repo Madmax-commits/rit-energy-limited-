@@ -1,5 +1,5 @@
 import Container from "./Container";
-
+import Image from "next/image";
 const divisions = [
   "RIT Gas Solutions",
   "RIT-Stack",
@@ -26,9 +26,14 @@ export default function Footer() {
 
           {/* Company Information */}
           <div>
-            <h2 className="text-2xl font-bold">
-              RIT ENERGY LIMITED
-            </h2>
+             <div>
+                        <Image
+                          src="/coloredlogo.png"
+                          alt="RIT ENERGY LIMITED"
+                          width={100}
+                          height={40}
+                        />
+                      </div>
 
             <p className="mt-5 text-white/70 leading-7">
               A multi-division operations company delivering energy,
@@ -126,7 +131,7 @@ export default function Footer() {
         >
 
           <p>
-            © 2026 RIT ENERGY LIMITED. All rights reserved.
+            © 2006 RIT ENERGY LIMITED. All rights reserved.
           </p>
 
           <p>

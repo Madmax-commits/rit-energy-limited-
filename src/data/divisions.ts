@@ -1,4 +1,12 @@
-export const divisions = [
+import { DivisionId } from "@/types/divisions";
+
+export const divisions: {
+  id: DivisionId;
+  name: string;
+  category: string;
+  description: string;
+  color: string;
+}[] = [
   {
     id: "gas",
     name: "RIT Gas Solutions",
@@ -7,7 +15,6 @@ export const divisions = [
       "Safe, reliable, and intelligent LPG solutions for homes, institutions, and commercial operations.",
     color: "bg-orange-50",
   },
-
   {
     id: "stack",
     name: "RIT-Stack",
@@ -16,7 +23,6 @@ export const divisions = [
       "Custom software, automation systems, and digital infrastructure that help organizations operate efficiently.",
     color: "bg-blue-50",
   },
-
   {
     id: "experiences",
     name: "RIT Experiences",
@@ -25,7 +31,6 @@ export const divisions = [
       "Professional event planning, coordination, hospitality, and memorable experiences.",
     color: "bg-purple-50",
   },
-
   {
     id: "elabs",
     name: "RIT e-LABs",
