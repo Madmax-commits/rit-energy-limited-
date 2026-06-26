@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import { divisionIcons } from "@/icons/divisionIcons";
 
 type DivisionCardProps = {
@@ -17,7 +19,40 @@ export default function DivisionCard({
 }: DivisionCardProps) {
 
   const Icon = divisionIcons[id];
+  const divisionImages = {
+  gas: [
+    "/images/divisions/gas.png",
+    "/images/divisions/gas2.png",
+  ],
 
+  stack: [
+    "/images/divisions/stack.png",
+    "/images/divisions/stack2.png",
+  ],
+
+  experiences: [
+    "/images/divisions/experiences.png",
+    "/images/divisions/experiences2.png",
+  ],
+
+  "elabs": [
+    "/images/divisions/e-labs.png",
+  ],
+};
+const images =
+  divisionImages[id as keyof typeof divisionImages] || [];
+
+const [currentImage, setCurrentImage] = useState(0);
+
+useEffect(() => {
+  if (images.length <= 1) return;
+
+  const interval = setInterval(() => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  }, 3500);
+
+  return () => clearInterval(interval);
+}, [images]);
   return (
     <div
       className={`
@@ -34,14 +69,22 @@ export default function DivisionCard({
     >
 
       <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center shadow-md">
-
+      
         <Icon
           className="text-[var(--color-navy)]"
           size={28}
         />
 
       </div>
-
+     {images.length > 0 && (
+  <div className="mt-6 overflow-hidden rounded-2xl">
+    <img
+      src={images[currentImage]}
+      alt={name}
+      className="h-56 w-full object-cover transition-opacity duration-700"
+    />
+  </div>
+)}
 
       <p className="mt-6 text-sm font-semibold uppercase text-gray-500">
         {category}

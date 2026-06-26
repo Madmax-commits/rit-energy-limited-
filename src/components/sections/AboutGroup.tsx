@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import Container from "../layout/Container";
 
 const values = [
@@ -19,10 +21,24 @@ const values = [
 ];
 
 export default function AboutGroup() {
+  const aboutImages = [
+  "/images/about/group-vision.png",
+  "/images/about/group-vision2.png",
+];
+
+const [currentImage, setCurrentImage] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentImage((prev) => (prev + 1) % aboutImages.length);
+  }, 4000);
+
+  return () => clearInterval(interval);
+}, []);
   return (
     <section
       id="about"
-      className="py-24 bg-white"
+      className="py-32 lg:py-40 bg-white"
     >
       <Container>
 
@@ -34,7 +50,7 @@ export default function AboutGroup() {
           </p>
 
           <h2 className="mt-4 text-4xl md:text-5xl font-bold text-[var(--color-navy)]">
-            One Company. Four Specialized Divisions.
+            One Company. Multi - Specialized Divisions.
           </h2>
 
           <p className="mt-8 text-lg text-gray-600 leading-8">
@@ -46,18 +62,27 @@ export default function AboutGroup() {
           </p>
 
         </div>
-
+         <div className="mt-20 overflow-hidden rounded-3xl shadow-xl">
+  <img
+    src={aboutImages[currentImage]}
+    alt="Group Vision"
+    className="h-[450px] w-full object-cover transition-opacity duration-700"
+  />
+</div>
 
         {/* Company Philosophy Card */}
-        <div className="
-          mt-16
+         <div
+          className="
           rounded-3xl
+          border
+          border-gray-200
           bg-[var(--color-navy)]
-          p-10
-          text-white
-        ">
-
-          <h3 className="text-2xl font-bold">
+          p-8
+          lg:p-10
+          shadow-sm
+         "
+        >
+          <h3 className="text-2xl font-bold text-white">
             Our Philosophy
           </h3>
 
@@ -74,7 +99,14 @@ export default function AboutGroup() {
 
 
         {/* Core Values */}
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <div
+          className="
+          mt-20
+          grid
+          gap-10
+          md:grid-cols-3
+         "
+        >
 
           {values.map((value) => (
             <div

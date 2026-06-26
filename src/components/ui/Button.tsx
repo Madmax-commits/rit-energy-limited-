@@ -14,15 +14,19 @@ export default function Button({
 
   return (
     <button
-      className={`
-        px-6 
-        py-3 
-        rounded-lg 
-        font-medium 
-        transition 
-        cursor-pointer
-        ${styles}
-      `}
+    className="
+  bg-[var(--color-navy)]
+  text-white
+  px-8
+  py-4
+  font-semibold
+  rounded-full
+  hover:opacity-90
+  transition-all
+  duration-300
+  ease-in-out
+  font-medium
+"
     >
       {text}
     </button>

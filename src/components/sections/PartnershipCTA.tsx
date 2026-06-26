@@ -12,7 +12,7 @@ export default function PartnershipCTA() {
   return (
     <section
       id="partnership"
-      className="py-24 bg-white"
+      className="py-32 lg:py-40 bg-white"
     >
       <Container>
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
@@ -35,7 +35,7 @@ export default function PartnershipCTA() {
               across multiple industries.
             </p>
 
-            <div className="mt-10">
+            <div className="mt-16">
               <Button text="Start a Partnership Discussion" />
             </div>
 

@@ -3,7 +3,7 @@ import { impacts } from "@/data/impact";
 
 export default function Impact() {
   return (
-    <section className="py-24 bg-[var(--color-navy)] text-white">
+    <section className="py-32 lg:py-40 bg-[var(--color-navy)] text-white">
       <Container>
         
         {/* Header */}
