@@ -1,42 +1,35 @@
-import { Flame, Cpu, CalendarDays, Lightbulb } from "lucide-react";
+import { ShieldCheck, Cpu, CalendarDays, BarChart3 } from "lucide-react";
 
 export const impacts = [
   {
-    title: "Energy & Stability",
+    title: "Reliable Operations",
     description:
-      "Reliable energy solutions that keep homes, institutions, and businesses operating.",
-    division: "RIT Gas Solutions",
-    icon: Flame,
+      "Delivering dependable systems, energy solutions, and operational support that keep homes, businesses, and institutions running.",
+    icon: ShieldCheck,
     color: "text-orange-500",
     bgColor: "bg-orange-100",
   },
-
   {
-    title: "Technology & Efficiency",
+    title: "Digital Transformation",
     description:
-      "Digital systems and automation that remove manual processes and improve operations.",
-    division: "RIT-Stack",
+      "Designing software, automation, and digital infrastructure that improve efficiency and reduce manual processes.",
     icon: Cpu,
     color: "text-blue-500",
     bgColor: "bg-blue-100",
   },
-
   {
-    title: "Experiences & Connection",
+    title: "Professional Experiences",
     description:
-      "Professional events that create meaningful human experiences and memorable moments.",
-    division: "RIT Experiences",
+      "Creating well-executed events and hospitality experiences that bring communities and organizations together.",
     icon: CalendarDays,
     color: "text-purple-500",
     bgColor: "bg-purple-100",
   },
-
   {
-    title: "Identity & Opportunity",
+    title: "Sustainable Growth",
     description:
-      "Strategic brand systems that help individuals and organizations become visible and influential.",
-    division: "RIT e-LABs",
-    icon: Lightbulb,
+      "Building brands, partnerships, and long-term strategies that help organizations expand with confidence.",
+    icon: BarChart3,
     color: "text-green-500",
     bgColor: "bg-green-100",
   },
