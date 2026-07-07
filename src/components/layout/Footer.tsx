@@ -78,10 +78,10 @@ export default function Footer() {
             </h3>
             <div className="mt-5 space-y-4 text-white/70">
               <p>28 Talabi Street, Off Adeniyi Jones, Ikeja, Lagos State, Nigeria</p>
-              <p>📞 +234 803 527 6560</p>
-              <p>📞 +234 912 287 2833</p>
-              <p>✉️ info@ritenergy.com</p>
-              <p>⏰ Mon–Fri, 9am–6pm</p>
+              <p>💬 +234 803 x27 xxxx</p>
+              <p>☎️ +234 912 2x7 xxxx</p>
+              <p>📩 ritenergylimited@mail.com</p>
+              
             </div>
           </div>
         </div>
