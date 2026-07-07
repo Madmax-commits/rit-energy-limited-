@@ -8,6 +8,8 @@ type DivisionCardProps = {
   category: string;
   description: string;
   color: string;
+  capabilities?: string[];
+  cta?: string;
 };
 
 export default function DivisionCard({
@@ -16,95 +18,101 @@ export default function DivisionCard({
   category,
   description,
   color,
+  capabilities = [],
+  cta = "Discover More →",
 }: DivisionCardProps) {
-
   const Icon = divisionIcons[id];
+
   const divisionImages = {
-  gas: [
-    "/images/divisions/gas.png",
-    "/images/divisions/gas2.png",
-  ],
+    gas: ["/images/divisions/gas.png", "/images/divisions/gas2.png"],
+    stack: ["/images/divisions/stack.png", "/images/divisions/stack2.png"],
+    experiences: [
+      "/images/divisions/experiences.png",
+      "/images/divisions/experiences2.png",
+    ],
+    elabs: ["/images/divisions/e-labs.png"],
+  };
 
-  stack: [
-    "/images/divisions/stack.png",
-    "/images/divisions/stack2.png",
-  ],
+  const images = divisionImages[id as keyof typeof divisionImages] || [];
+  const [currentImage, setCurrentImage] = useState(0);
 
-  experiences: [
-    "/images/divisions/experiences.png",
-    "/images/divisions/experiences2.png",
-  ],
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const interval = setInterval(
+      () => setCurrentImage((prev) => (prev + 1) % images.length),
+      3500
+    );
+    return () => clearInterval(interval);
+  }, [images]);
 
-  "elabs": [
-    "/images/divisions/e-labs.png",
-  ],
-};
-const images =
-  divisionImages[id as keyof typeof divisionImages] || [];
-
-const [currentImage, setCurrentImage] = useState(0);
-
-useEffect(() => {
-  if (images.length <= 1) return;
-
-  const interval = setInterval(() => {
-    setCurrentImage((prev) => (prev + 1) % images.length);
-  }, 3500);
-
-  return () => clearInterval(interval);
-}, [images]);
   return (
     <div
       className={`
-        ${color}
-        rounded-3xl
-        p-8
-        border
-        border-gray-200
-        transition-all
-        duration-300
-        hover:-translate-y-2
-        hover:shadow-2xl
+        group
+        rounded-2xl
+        overflow-hidden
+        shadow-md
+        border border-gray-200
+        bg-white
+        transition-transform duration-300
+        hover:-translate-y-2 hover:shadow-xl
       `}
     >
+      {/* Image */}
+      {images.length > 0 && (
+        <div className="relative h-48 w-full overflow-hidden">
+          <img
+            src={images[currentImage]}
+            alt={name}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      )}
 
-      <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center shadow-md">
-      
-        <Icon
-          className="text-[var(--color-navy)]"
-          size={28}
-        />
+      {/* Content */}
+      <div className="p-8">
+        {/* Icon */}
+        <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center shadow-md mb-6">
+          <Icon className="text-[var(--color-navy)]" size={28} />
+        </div>
 
+        {/* Category */}
+        <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">
+          {category}
+        </p>
+
+        {/* Division Name */}
+        <h3 className="text-2xl font-bold text-[var(--color-navy)] mb-4">
+          {name}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-600 leading-7 mb-6 line-clamp-3">
+          {description}
+        </p>
+
+        {/* Capabilities */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {capabilities.map((cap) => (
+            <span
+              key={cap}
+              className="px-3 py-1 text-sm rounded-full bg-gray-100 text-gray-700"
+            >
+              {cap}
+            </span>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <button
+          className="
+            inline-flex items-center text-[var(--color-navy)] font-semibold
+            transition-transform duration-300 group-hover:translate-x-1
+          "
+        >
+          {cta}
+        </button>
       </div>
-     {images.length > 0 && (
-  <div className="mt-6 overflow-hidden rounded-2xl">
-    <img
-      src={images[currentImage]}
-      alt={name}
-      className="h-56 w-full object-cover transition-opacity duration-700"
-    />
-  </div>
-)}
-
-      <p className="mt-6 text-sm font-semibold uppercase text-gray-500">
-        {category}
-      </p>
-
-
-      <h3 className="mt-3 text-2xl font-bold text-[var(--color-navy)]">
-        {name}
-      </h3>
-
-
-      <p className="mt-4 text-gray-600 leading-7">
-        {description}
-      </p>
-
-
-      <button className="mt-8 font-semibold text-[var(--color-navy)]">
-        Explore Division →
-      </button>
-
     </div>
   );
 }

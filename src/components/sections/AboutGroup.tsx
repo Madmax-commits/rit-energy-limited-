@@ -22,117 +22,89 @@ const values = [
 
 export default function AboutGroup() {
   const aboutImages = [
-  "/images/about/group-vision.png",
-  "/images/about/group-vision2.png",
-];
+    "/images/about/group-vision.png",
+    "/images/about/group-vision2.png",
+  ];
 
-const [currentImage, setCurrentImage] = useState(0);
+  const [currentImage, setCurrentImage] = useState(0);
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    setCurrentImage((prev) => (prev + 1) % aboutImages.length);
-  }, 4000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % aboutImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
-  return () => clearInterval(interval);
-}, []);
   return (
-    <section
-      id="about"
-      className="py-32 lg:py-40 bg-white"
-    >
+    <section id="about" className="py-32 lg:py-40 bg-white">
       <Container>
+        {/* Executive Introduction */}
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
+          {/* Image (40% desktop, full width mobile) */}
+          <div className="lg:col-span-5 overflow-hidden rounded-3xl shadow-xl">
+            <img
+              src={aboutImages[currentImage]}
+              alt="Corporate Leadership and Vision"
+              className="h-[400px] lg:h-[500px] w-full object-cover transition-opacity duration-700"
+            />
+          </div>
 
-        {/* Section Header */}
-        <div className="max-w-3xl">
-
-          <p className="text-sm font-semibold tracking-[0.3em] uppercase text-[var(--color-gold)]">
-            About The Group
-          </p>
-
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold text-[var(--color-navy)]">
-            One Company. Multi - Specialized Divisions.
-          </h2>
-
-          <p className="mt-8 text-lg text-gray-600 leading-8">
-            RIT ENERGY LIMITED is a diversified operations group
-            structured around independent business divisions with
-            specialized expertise. Through energy solutions, digital
-            systems, strategic brand development, and professional
-            experiences, we solve practical challenges across industries.
-          </p>
-
+          {/* Text (60% desktop) */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-gold)] font-semibold">
+              About The Group
+            </p>
+            <h2 className="mt-4 text-4xl md:text-5xl font-bold text-[var(--color-navy)]">
+              1-COMPANY- DIVERSE SPECIALIZED DIVISIONS -1 SHARED VISION-
+            </h2>
+            <p className="mt-8 text-lg text-gray-600 leading-8 max-w-2xl">
+              RIT ENERGY LIMITED is a diversified operations group built
+              around specialized companies that deliver reliable energy,
+              digital infrastructure, professional experiences, and strategic
+              brand development. Each division operates independently while
+              advancing a shared commitment to operational excellence,
+              innovation, and sustainable growth.
+            </p>
+          </div>
         </div>
-         <div className="mt-20 overflow-hidden rounded-3xl shadow-xl">
-  <img
-    src={aboutImages[currentImage]}
-    alt="Group Vision"
-    className="h-[450px] w-full object-cover transition-opacity duration-700"
-  />
-</div>
 
-        {/* Company Philosophy Card */}
-         <div
-          className="
-          rounded-3xl
-          border
-          border-gray-200
-          bg-[var(--color-navy)]
-          p-8
-          lg:p-10
-          shadow-sm
-         "
-        >
-          <h3 className="text-2xl font-bold text-white">
-            Our Philosophy
-          </h3>
-
-          <p className="mt-6 text-lg text-white/80 leading-8">
-            Modern organizations require reliable systems,
-            innovative solutions, and strategic execution.
-            Our multi-division model allows each company
-            within the RIT ecosystem to focus deeply on its
-            industry while benefiting from a shared vision
-            of excellence, innovation, and growth.
-          </p>
-
+        {/* Corporate Philosophy Banner */}
+        {/* Corporate Philosophy Banner */}
+        <div className="mt-40 w-full bg-[var(--color-navy)] rounded-none py-20 text-center">
+         <div className="mt-40 w-full bg-[var(--color-navy)] py-20 text-center">
+           <h3 className="text-3xl md:text-4xl font-bold text-white">
+             Our Philosophy
+            </h3>
+            <p className="mt-6 text-xl md:text-2xl text-white/80 leading-relaxed mx-auto">
+             Building structured systems that improve how people, organizations,
+             and industries operate.
+            </p>
+          </div>
         </div>
 
 
-        {/* Core Values */}
-        <div
-          className="
-          mt-20
-          grid
-          gap-10
-          md:grid-cols-3
-         "
-        >
-
+        {/* Core Principles */}
+        <div className="mt-28 grid gap-10 md:grid-cols-3">
           {values.map((value) => (
             <div
               key={value.title}
-              className="
-                rounded-2xl
-                p-8
-                border
-                border-gray-200
-                bg-gray-50
-              "
+              className="rounded-2xl p-10 bg-white shadow-md border border-gray-200 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"
             >
-
               <h3 className="text-xl font-semibold text-[var(--color-navy)]">
                 {value.title}
               </h3>
-
-              <p className="mt-4 text-gray-600 leading-7">
-                {value.description}
-              </p>
-
+              <p className="mt-4 text-gray-600 leading-7">{value.description}</p>
             </div>
           ))}
-
         </div>
 
+        {/* Strategic Position Statement */}
+        <div className="mt-32 text-center">
+          <p className="text-3xl md:text-4xl font-bold text-[var(--color-navy)] leading-snug  mx-auto">
+            We believe the future belongs to organizations built on
+            specialization collaboration, and long-term vision.
+          </p>
+        </div>
       </Container>
     </section>
   );

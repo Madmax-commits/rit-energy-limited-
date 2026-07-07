@@ -13,16 +13,9 @@ export default function Impact() {
             Group Impact
           </p>
 
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold">
-            Creating Value Across Critical Areas of Society
-          </h2>
+         
 
-          <p className="mt-8 text-lg text-white/80 leading-8">
-            Our business model combines specialized divisions
-            focused on essential human and organizational needs,
-            creating an ecosystem built around reliability,
-            innovation, growth, and meaningful experiences.
-          </p>
+          
 
         </div>
 
